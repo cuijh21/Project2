@@ -60,5 +60,5 @@ http://localhost:8080
 
 
 ## Authors
-- [Your Name]
-- [Names of Other Team Members]
+Jiahao Cui
+
