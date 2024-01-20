@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mini Wallet</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+<body>
+
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <span class="fs-4">Mini Wallet</span>
+          </a>
+    
+          <ul class="nav nav-pills">
+            {{if .Username}}
+            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="/mywallet" class="nav-link">My wallet</a></li>
+            <li class="nav-item"><a href="/transactions/new" class="nav-link">New Transaction</a></li>
+            <li class="nav-item"><a href="/transaction-history" class="nav-link  active">Transaction Histroy</a></li>
+            <li class="nav-item"><a href="/blockchain" class="nav-link">Blockchain</a></li>
+            <li class="nav-item"><a href="/logout" class="btn  btn-danger">Logout</a></li>
+
+            {{else}}
+                <li class="nav-item"><a href="/blockchain" class="nav-link">Blockchain</a></li>
+                <li class="nav-item"></li><a href="/login" class="btn btn-primary me-2">Login</a></li>
+                <li class="nav-item"></li><a href="/register" class="btn btn-success">Register</a></li>
+            {{end}}
+          </ul>
+        </header>
+    </div>
+    <div class="container">
+      <h1>{{.Username}}'s Transaction History</h1>
+      <ul class="list-group">
+          {{range .Transactions}}
+          <li class="list-group-item">
+              <strong>From:</strong> {{.From}}, <strong>To:</strong> {{.To}}, <strong>Amount:</strong> {{.Amount}}
+          </li>
+          {{end}}
+      </ul>
+  </div>
+    <a href="/">Back to Home</a>
+
+</body>
+</html>
