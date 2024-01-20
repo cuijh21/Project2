@@ -10,7 +10,7 @@ This is a blockchain system implemented in Go language, supporting basic blockch
 Ensure your system has the Go language environment installed. Clone the project repository to your local machine:
 
 ```bash
-git clone <Project Repository URL>
+git clone [<Project Repository URL>](https://github.com/cuijh21/Project2.git)
 cd <Project Directory>
 ```
 
