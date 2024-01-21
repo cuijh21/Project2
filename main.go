@@ -33,7 +33,7 @@ func startBlockchainNode(port string) {
 	blockchain := NewBlockchain() // Initialize the blockchain, loading or creating the genesis block
 
 	nodeAddress := "127.0.0.1:" + port
-	node := NewNode(nodeAddress, blockchain, 3)
+	node := NewNode(nodeAddress, blockchain)
 
 	// Write the node address to nodes.txt
 	writeAddressToFile(nodeAddress, "nodes.txt")
@@ -56,20 +56,34 @@ func writeAddressToFile(address, filename string) {
 
 func main() {
 	if len(os.Args) < 3 {
-		log.Fatal("Usage: go run . [wallet|node|consensus] [port]")
+		log.Fatal("Usage: go run . [wallet|node|consensus|task] [num]")
 	}
 
 	mode := os.Args[1]
-	port := os.Args[2]
+	num := os.Args[2]
 
 	switch mode {
 	case "wallet":
-		startWalletApp(port)
+		startWalletApp(num)
 	case "node":
-		startBlockchainNode(port)
+		startBlockchainNode(num)
 	case "consensus":
 		consensus := NewConsensus()
 		consensus.Start()
+	case "task":
+		if num == "one" {
+			// Call the function for task one
+			performTaskOne()
+		} else if num == "three" {
+			performTaskThree()
+		} else if num == "four" {
+			performTaskFour()
+		} else if num == "five" {
+			performTaskFive()
+		} else {
+			log.Fatal("Unknown task number: ", num)
+		}
+
 	default:
 		log.Fatal("Unknown mode: ", mode)
 	}

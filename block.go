@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-const targetBits = 4              // Mining difficulty definition
+const targetBits = 3              // Mining difficulty definition
 const maxNonce = 1<<31 - 1        // Maximum value for a 32-bit integer, used as the limit for mining attempts
 const MaxTransactionsPerBlock = 5 // Assuming a maximum of 5 transactions per block
 
